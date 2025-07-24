@@ -1,75 +1,40 @@
-California Housing Price Prediction
-This project implements an end-to-end machine learning pipeline to predict median house values in California using the California housing dataset. It demonstrates data preprocessing, model training, and inference using scikit-learn and pandas.
+# 🏡 House Price Prediction using Machine Learning
 
-Features
-Data Loading & Splitting: Loads housing.csv and creates a stratified train/test split.
+This project predicts house prices using the California housing dataset and machine learning models. It includes data preprocessing pipelines, model training, and prediction with outputs saved in CSV format.
 
-Data Preprocessing Pipeline: Uses scikit-learn's Pipeline and ColumnTransformer for:
+## 📁 Files Included
 
-Handling missing numerical values (SimpleImputer).
+- `main.py`: Final script to train the model or make predictions
+- `main_old.py`: Script comparing models (Linear Regression, Decision Tree, Random Forest)
+- `housing.csv`: Dataset containing housing features and prices
+- `input.csv`: Input file for new predictions
+- `output.csv`: Prediction results with house prices
+- `model.pkl`: Saved trained Random Forest model
+- `pipeline.pkl`: Saved preprocessing pipeline
 
-Scaling numerical features (StandardScaler).
+## 🔧 How It Works
 
-One-hot encoding categorical features (OneHotEncoder).
+- On the **first run**, the script:
+  - Splits the data using stratified sampling
+  - Builds a pipeline for preprocessing
+  - Trains a Random Forest model
+  - Saves the model and pipeline
+  - Generates `input.csv` for testing
 
-Model Training: Trains a RandomForestRegressor model.
+- On **later runs**, it:
+  - Loads the model and pipeline
+  - Predicts prices for data in `input.csv`
+  - Saves results to `output.csv`
 
-Model Persistence: Saves the trained model and preprocessing pipeline using joblib.
+## 🧠 Models Used
 
-Inference: Loads the saved model/pipeline to make predictions on input.csv and saves results to output.csv.
+- Linear Regression (baseline)
+- Decision Tree Regressor
+- ✅ Random Forest Regressor (final deployed model)
 
-Technologies Used
-Python 3.x
+## 🚀 Run the Project
 
-pandas
+### 1. First-Time Training
 
-numpy
-
-scikit-learn
-
-joblib
-
-Files in this Project
-housing.csv: Primary dataset.
-
-main.py: Main script for training and inference.
-
-main_old.py: Older script for model experimentation.
-
-input.csv: Sample data for predictions (generated from test set).
-
-output.csv: Prediction results.
-
-model.pkl: (Generated) Trained RandomForestRegressor model.
-
-pipeline.pkl: (Generated) Preprocessing pipeline.
-
-How to Run
-Ensure all files are in the same directory.
-
-Install libraries:
-
-pip install pandas numpy scikit-learn joblib
-
-Run the script:
-
+```bash
 python main.py
-
-First run: Model training, model.pkl, pipeline.pkl, and input.csv creation.
-
-Subsequent runs: Inference on input.csv, results saved to output.csv.
-
-Key Learnings
-This project provided practical experience in:
-
-Implementing robust data preprocessing.
-
-Applying stratified sampling.
-
-Building efficient ML pipelines.
-
-Training and evaluating regression models (RandomForestRegressor).
-
-Model persistence for deployment.
-
-This project provided a comprehensive understanding of the end-to-end machine learning workflow.
